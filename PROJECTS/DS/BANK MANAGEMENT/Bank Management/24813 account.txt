@@ -1,0 +1,15 @@
+	Account Number: 24813
+	Account Type: S
+Name: MuhammadNohail
+Cnic: 1
+Contact Number: 1
+Address: 1
+Balance: 10000
+Number of Transactions: 0
+Account Opening Date and Time: 'Fri Nov 18 11:11:51 2022
+
+
+History: 
+
+10000 have been deposited in your account while opening on Fri Nov 18 11:11:51 2022
+

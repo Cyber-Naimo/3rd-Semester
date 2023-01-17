@@ -1,0 +1,15 @@
+	Account Number: 333
+	Account Type: S
+Name: Saad Khalid
+Cnic: 67567564
+Contact Number: 213123
+Address: dfsdf
+Balance: 7000
+Number of Transactions: 0
+Account Opening Date and Time: Fri Nov 18 11:53:57 2022
+
+
+History: 
+
+7000 have been deposited in your account while opening on Fri Nov 18 11:53:57 2022
+

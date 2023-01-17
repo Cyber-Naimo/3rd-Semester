@@ -1,0 +1,431 @@
+******************	QUESTION NO 1:    *********************************
+class Stack
+{
+	int size;
+	int top;
+	int *arr;
+	public:
+		Stack(int size)
+		{
+			this->size = size;
+			arr = new int[size];
+			top = -1;
+		}
+		
+		void push(int element)		
+		{
+			// first check space is availabe or not
+			if(size - top > 1)			// checking space condition
+			{
+				top++;
+				arr[top] = element;
+			}
+			else
+			{
+				cout<<"Stack OverFlow "<<endl;
+			}
+		}
+		int pop()
+		{
+			int ans = arr[top];
+			if(top>=0)
+			{			
+				cout<<"POP with a Value of "<<arr[top]<<endl;
+				top--;
+			}
+			else
+			{
+				cout<<"Stack UnderFlow "<<endl;
+			}
+			return ans;
+		}
+		void IsEmpty()
+		{
+			if(top == -1)
+			{
+				cout<<"Stack is Empty "<<endl;
+			}
+			else
+			{
+				cout<<"Stack is not Empty "<<endl;
+			}
+		}
+		void IsFull()
+		{
+			if(top == size-1)
+			{
+					cout<<"Stack is Full "<<endl;
+			}
+			else
+			{
+				cout<<"Stack is not Full "<<endl;
+			}
+		}
+		int peek()
+		{
+			if(top>=0)
+			{
+				return arr[top];
+			}
+			else
+			{
+				cout<<"Stack is Empty "<<endl;
+				return -1;
+			}
+		}
+
+	
+};
+///////////////////////////////////////////////////////////////////////////
+
+******************	QUESTION NO 2:    *********************************
+class Node
+{
+	public:
+	int data;
+	Node* next;
+};
+class Stack
+{
+	Node* head;
+	public:
+		Stack()
+		{
+			head = NULL;			
+		}
+		void push(int data)
+		{
+			Node* new_Node = new Node;
+			if(new_Node == NULL)
+			{
+				cout<<"Stack OverFlow "<<endl;
+			}
+			else
+			{
+				
+				new_Node->data = data;
+				new_Node->next = head;
+				head = new_Node;			
+			}	
+		}
+		int  pop()
+		{
+				if(head == NULL)
+				{
+					cout<<"Stack UnderFlow "<<endl;
+					return -1;
+				}
+				else
+				{
+					Node* pre= head;
+					int x  =-1;
+					head  = head->next;
+					x = pre->data;
+					delete pre;
+					return x;
+				}
+		}
+		void peek()
+		{
+			
+			Node* cur = head;
+			while(cur!=NULL)
+			{
+				cout<<" "<<cur->data<<" --> ";
+				cur = cur->next;
+			}
+			cout<<"NULL"<<endl;
+		}
+///////////////////////////////////////////////////////////////////////////
+
+
+******************	QUESTION NO 3:    *********************************
+int precedence(char x)
+		{
+			if(x=='+' || x=='-')
+			{
+				return 1;
+			}
+			else if(x=='*' || x=='/')
+			{
+				return 2;
+			}
+			else if(x == '^')
+			{
+				return 3;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+		string InfixToPostfix(string s)
+		{
+			/*
+			step1: agr koi bh alphabet hogato hm srf use resultent string m add krenge
+			step2: agr opening bracket h to simply use push krdege stack me
+			step3: agr closing bracket h to loop tb tk chalayega jb tk use opening bracket nh milti and jo bh stack ka top hoga use wo res string m save krata rahega
+			step4: agr koi opertaor h to uski precendence chack krna agr stack ki precedence sa ziada ho tbhi stack ka top ko resultant string m save krna simple.
+			step5: last ma loop tk tk chalo jb tk stack empty nh hota and jo bh remaining element h use resultant string m save krake string return krdo
+			*/
+			stack<char> st;
+			string res = " ";
+			for(int i =0 ;i<s.length();i++)
+			{
+				if(s[i]>= 'a' &&  s[i]<= 'z')			// (a+b)*c
+				{
+					res+= s[i];
+				}
+				else if(s[i]=='(')
+				{
+					st.push(s[i]);
+				}
+				else if(s[i] ==')')
+				{
+					while(!st.empty() && st.top()!='(')
+					{
+						res+= st.top();
+						st.pop();	  	
+					}
+					if(!st.empty())
+					{
+						st.pop();			// for deleting remaining opening bracket
+					}
+				}
+				else
+				{
+					while(!st.empty() && precedence(st.top()) > precedence(s[i]))
+					{
+						res+= st.top();
+						st.pop();
+					}
+					st.push(s[i]);
+				}
+			}
+			
+			while(!st.empty())
+			{
+				res+= st.top();
+				st.pop();
+			}
+			return res;
+		}
+		
+int main()
+{
+
+	cout<<" "<<InfixToPostfix("((a+b)*c)-d")<<endl;
+
+}
+///////////////////////////////////////////////////////////////////////////
+
+
+
+******************	QUESTION NO 4:    *********************************
+class Queue
+{
+	public:
+	int size;
+	int front;
+	int rear;
+	int *arr;
+	Queue(int size)			// constructor
+	{
+		this->size = size;
+		front = 0;
+		rear = 0;
+		arr = new int[size];
+	}
+	bool IsFull()
+	{
+		if(rear == size)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	bool IsEmpty()
+	{
+		if(rear == front)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	void EnQueue(int data)
+	{
+		if(IsFull())
+		{
+			cout<<"QUEUE OVERFLOW "<<endl;
+		}
+		else
+		{
+			arr[rear] = data;
+			rear++;
+		}
+	}
+	int DeQueue()
+	{
+		if(IsEmpty())
+		{
+			cout<<"Queue UnderFlow"<<endl;
+			return -1;
+		}
+		else
+		{
+			int ans = arr[front];
+			arr[front] = -1;
+			front++;
+			if(IsEmpty())
+			{
+				front = 0;
+				rear = 0;
+			}
+				return ans;
+		}
+	
+	}
+	int peek()
+	{
+		if(IsEmpty())
+		{
+			return -1;
+		}
+		else
+		{
+			return arr[front];
+		}
+	}
+	
+};
+int main()
+{
+	Queue q(5);
+	cout<<" "<<q.IsEmpty()<<endl;
+	q.EnQueue(10);
+	q.EnQueue(20);
+	q.EnQueue(30);
+	q.EnQueue(40);
+	q.EnQueue(50);
+	cout<<" "<<q.peek();
+	cout<<" "<<q.peek();
+	
+	return 0;
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+
+******************	QUESTION NO 5:    *********************************
+class Node
+{
+	public:
+	int data;
+	Node* next;
+};
+class Queue
+{
+	public:
+	Node* front;
+	Node* rear;
+	Queue()
+	{
+		front = rear = NULL; 
+	}
+	void EnQueue(int data)
+	{
+		Node* temp = new Node(data);
+		if(rear == NULL )
+		{
+			front = rear = temp;
+			return;
+		}
+		else
+		{
+			rear->next = temp;
+			rear = temp;
+		}
+	}
+	void DeQueue()
+	{
+		Node* temp = front;
+		front = front->next;
+		if(front == NULL)
+		{
+			rear = NULL;
+		}
+		delete temp;
+	}
+	bool Full()
+	{
+		if(rear == NULL)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+};
+///////////////////////////////////////////////////////////////////////////
+
+
+******************	QUESTION NO 6:    *********************************
+class Node
+{
+	public:
+	int data;
+	int priority;
+	Node* next;
+	
+	Node* newNode(int d, int p)
+	{
+	    Node* temp = new Node;
+	    temp->data = d;
+	    temp->priority = p;
+	    temp->next = NULL; 
+	    return temp;
+	}
+	
+	int peek(Node* head)
+	{
+	    return head->data;
+	}
+	void pop(Node* head)
+	{
+	    Node* temp = head;
+	    head = head->next;
+	    delete(temp);
+	}
+	
+	void push(Node* head, int d, int p)
+	{
+	    Node* start = head;
+	    Node* temp = newNode(d, p);
+	    if (head->priority > p)
+	    {
+	        temp->next = head;
+	        head = temp;
+	    }
+	    else
+	    {
+	        while (start->next != NULL && start->next->priority < p)
+	        {
+	            start = start->next;
+	        }
+	        temp->next = start->next;
+	        start->next = temp;
+	    }
+	}
+};
+///////////////////////////////////////////////////////////////////////////

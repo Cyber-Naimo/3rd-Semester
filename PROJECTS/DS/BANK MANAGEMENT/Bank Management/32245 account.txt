@@ -1,0 +1,15 @@
+	Account Number: 32245
+	Account Type: S
+Name: Moiz Alam
+Cnic: 1234
+Contact Number: 124
+Address: safas fsdf
+Balance: 1500
+Number of Transactions: 0
+Account Opening Date and Time: Fri Nov 18 11:49:48 2022
+
+
+History: 
+
+1500 have been deposited in your account while opening on Fri Nov 18 11:49:48 2022
+

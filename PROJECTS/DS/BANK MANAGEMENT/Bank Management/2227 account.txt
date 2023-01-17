@@ -1,0 +1,15 @@
+	Account Number: 2227
+	Account Type: C
+Name: Mohsin Khan
+Cnic: 345
+Contact Number: 32423
+Address: khat12sad
+Balance: 50300
+Number of Transactions: 0
+Account Opening Date and Time: Fri Nov 18 12:03:45 2022
+
+
+History: 
+
+50300 have been deposited in your account while opening on Fri Nov 18 12:03:45 2022
+

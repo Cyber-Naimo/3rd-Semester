@@ -1,0 +1,17 @@
+	Account Number: 25861
+	Account Type: S
+Name: MJ AHSAN
+Cnic: 111
+Contact Number: 11
+Address: 1
+Balance: 2420
+Number of Transactions: 1
+Account Opening Date and Time: Fri Nov 18 11:16:58 2022
+
+
+History: 
+
+80 have been paid to Electricity Bill on Fri Nov 18 12:00:30 2022
+
+2500 have been deposited in your account while opening on Fri Nov 18 11:16:58 2022
+

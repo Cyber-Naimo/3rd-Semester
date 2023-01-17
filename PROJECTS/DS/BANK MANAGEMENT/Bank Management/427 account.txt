@@ -1,0 +1,17 @@
+	Account Number: 427
+	Account Type: S
+Name: Siraj Ahmed
+Cnic: 7876
+Contact Number: 3456437645
+Address: fsf sdfsdfsd
+Balance: 20000
+Number of Transactions: 1
+Account Opening Date and Time: Fri Nov 18 11:54:59 2022
+
+
+History: 
+
+5000 have been deposited in your account on Fri Nov 18 12:07:25 2022
+
+15000 have been deposited in your account while opening on Fri Nov 18 11:54:59 2022
+

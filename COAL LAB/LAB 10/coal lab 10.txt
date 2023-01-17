@@ -1,0 +1,129 @@
+Q3		STRING REVSERE USING RECURSION
+
+TITLE My First Program (21k4530.asm)
+INCLUDE irvine32.inc
+.data
+str1 byte "evil is tamian",0
+str2 byte lengthof str1 dup(?)
+.code
+main proc
+mov esi,0
+add esi,lengthof str1
+sub esi,2
+mov edi,0
+call Reverse
+mov edx,offset str2
+call writestring
+call dumpregs
+exit
+main endp
+
+Reverse Proc
+; base condition
+cmp esi,-1
+je end_process
+mov al,str1[esi]
+mov str2[edi],al
+inc edi
+dec esi
+call Reverse
+end_process:
+ret
+Reverse endp
+END main
+
+HOW TO TAKE STRING FROM INPUT:
+
+
+TITLE My First Program (21k4530.asm)
+INCLUDE irvine32.inc
+.data
+inputstring byte 100 dup(?)
+str1 byte "ENTER string: ",0
+
+.code
+main proc
+
+mov edx,offset str1
+call writestring
+
+; INPUT STRING FORMAT
+mov edx,offset inputstring
+mov ecx,100
+call readstring
+; PRINTING USER STRING FORMAT
+mov edx,offset inputstring
+call writestring
+exit
+main endp
+END main
+
+
+Q4:
+
+TITLE My First Program (21k4530.asm)
+INCLUDE irvine32.inc
+.data
+
+str1 byte "ENTER NO: ",0
+str2 byte "SQURE OF NO: ",0
+.code
+main proc
+
+mov edx,offset str1
+call writestring
+call readint					; 2
+call Square
+mov edx,offset str2
+call writestring
+call writedec
+exit
+main endp
+
+Square proc
+enter 4,0
+mul eax
+leave
+ret
+Square endp
+END main
+
+Q5    FACTORIAL USING RECURSION
+
+TITLE My First Program (21k4530.asm)
+INCLUDE irvine32.inc
+.data
+
+str1 byte "ENTER NO: ",0
+str2 byte "Factorial OF NO: ",0
+var DWORD 0
+.code
+main proc
+; first we have to store value of eax and also store eax-1 value in ebx then use ebx in recur
+mov edx,offset str1
+call writestring
+call readint					; 4
+mov var,eax						; var = 4
+mov ebx,var		
+dec ebx							; ebx = 3
+	
+call factorial
+mov edx,offset str2
+call writestring
+call writedec
+exit
+main endp
+
+factorial proc
+
+mov edx,0				; for storing ans in edx so clear it
+cmp ebx,0				; base condition
+je endprocess
+mul ebx					; 1st) eax = 12, 2nd) eax = 24
+dec ebx					; 1st) ebx = 2,  2nd) ebx = 1
+call factorial
+endprocess:
+ret
+factorial endp
+END main
+

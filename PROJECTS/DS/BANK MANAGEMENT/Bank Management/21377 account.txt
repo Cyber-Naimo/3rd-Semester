@@ -1,0 +1,15 @@
+	Account Number: 21377
+	Account Type: C
+Name: Muhammad Sohail
+Cnic: 1
+Contact Number: 1
+Address: 1
+Balance: 1500
+Number of Transactions: 0
+Account Opening Date and Time: Fri Nov 18 10:54:16 2022
+
+
+History: 
+
+1500 have been deposited in your account while opening on Fri Nov 18 10:54:16 2022
+

@@ -1,0 +1,17 @@
+	Account Number: 16874
+	Account Type: S
+Name: ayesah
+Cnic: 
+Contact Number: 1
+Address: 1
+Balance: 9950
+Number of Transactions: 1
+Account Opening Date and Time: Fri Nov 18 10:31:01 2022
+
+
+History: 
+
+50 have been sent to Jazzcash on Fri Nov 18 10:31:37 2022
+
+10000 have been deposited in your account while opening on Fri Nov 18 10:31:01 2022
+

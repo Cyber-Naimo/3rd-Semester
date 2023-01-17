@@ -1,0 +1,42 @@
+from functools import partial
+
+def getTTable(exp):
+    
+    i = [True, True, False, False]
+    j = [True, False, True, False]
+    
+    print("-"*100)
+    print("p\tq\t"+exp)
+    print("-"*100)
+    for p,q in zip(i,j):
+        print (str(p)+"\t"+str(q)+"\t"+str(eval(exp)))
+
+
+#stand alone methods for implication and bicondition
+# donot modify this part--->
+
+class Infix(object):
+    def __init__(self, func):
+        self.func = func
+    def __or__(self, other):
+        return self.func(other)
+    def __ror__(self, other):
+        return Infix(partial(self.func, other))
+    def __call__(self, v1, v2):
+        return self.func(v1, v2)
+@Infix
+def implies(p, q) :
+    return not p or q
+
+@Infix
+def iff(p, q) :
+    return (p |implies| q) and (q |implies| p)
+
+#<---donot modify this part
+
+
+#main program
+#Enter the expression in format
+#like: "p |implies| q"
+expression = input("Enter expression: ")
+getTTable(expression)

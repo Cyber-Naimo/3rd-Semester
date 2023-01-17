@@ -1,0 +1,15 @@
+	Account Number: 1436
+	Account Type: S
+Name: Hussain Malik
+Cnic: 5463457
+Contact Number: 323
+Address: dvsdfs sdfs
+Balance: 9000
+Number of Transactions: 0
+Account Opening Date and Time: Fri Nov 18 11:59:42 2022
+
+
+History: 
+
+9000 have been deposited in your account while opening on Fri Nov 18 11:59:42 2022
+

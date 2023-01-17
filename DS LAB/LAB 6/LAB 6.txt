@@ -1,0 +1,581 @@
+
+
+
+************************ 	Question No 1:	  ****************************************
+
+#include<iostream>
+using namespace std;
+class Node
+{
+		public:
+		int data;
+		Node* next;
+		Node* pre;
+		Node()
+		{
+			data = 0;
+			next = NULL;
+		}
+		Node(int data)
+		{
+			this->data = data;
+			this->pre = NULL;
+			this->next = NULL;
+		}
+};
+		void InsertatStart(Node* &head, int data)
+		{
+			Node* new_Node = new Node(data);
+			new_Node->next = head;
+			head->pre = new_Node;
+			head = new_Node;
+		}
+		void InsertatEnd(Node* &head, int data)
+		{
+			Node* new_Node = new Node(data);
+			head->next = new_Node;
+			new_Node->pre = head;
+			head = new_Node;
+		}
+		void Insertion(Node* &head, int data,int pos)
+		{
+			Node* cur = head;
+			Node* new_Node = new Node(data);
+			if(pos == 1)
+			{
+			InsertatStart(head,data);
+			}
+			else
+			{
+			for(int i = 1; i<pos-1 ; i++ )
+			{
+			cur = cur->next;
+			}
+			new_Node->next = cur->next;
+			cur->next->pre = new_Node;
+			cur->next = new_Node;
+			new_Node->pre = cur;
+			}
+		}
+		void Deletion(Node* &head,int pos)
+		{
+			Node* cur = head;
+			if(pos==1)
+			{
+			head = cur->next;
+			head->pre = NULL;
+			delete cur;
+			}
+			else
+			{
+			for(int i = 1; i<pos; i++ )
+			{
+			cur = cur->next;
+			}
+			Node*  next_cur = cur->next;
+			Node* pre_cur = cur->pre;
+			next_cur->pre = pre_cur;
+			pre_cur->next = next_cur;
+			delete cur;
+			}
+		}
+		void Display(Node* &head)
+		{
+			Node* cur = head;
+			while(cur!=NULL)
+			{
+			cout<<"  "<<cur->data<<" --> ";
+			cur = cur->next;
+			}
+			cout<<"NULL"<<endl<<endl;
+		}
+
+*/ 		************  		**************		*****************  	/*
+
+
+
+
+
+
+************************ 	Question No 2:	  ****************************************
+
+#include<iostream>
+using namespace std;
+class Node
+{
+	
+	public:
+	int data;
+	Node *next;
+		Node()
+		{
+			data = 0;
+			next = 0;
+		}
+		Node(int data)
+		{
+			this->data=data;
+			this->next=NULL;
+		}
+		
+		~Node()
+		{
+		}
+	
+};
+void InsertAtHead(Node* &head, int data)
+{
+	Node* new_Node = new Node(data);
+
+	if(head == NULL)
+	{
+		head = new_Node;
+		head->next = new_Node;
+	}
+	else
+	{
+		Node* cur;
+		while(cur!=head)
+		{
+			cur = cur->next;
+		}
+		cur->next = new_Node;
+		new_Node->next = head;
+		head = new_Node;
+	}
+}
+void InsertAtTail(Node* &head, int data)
+{
+	Node* new_Node = new Node(data);
+	Node* cur = head;
+	while(cur->next!=head)
+	{
+		cur = cur->next;
+	}
+	new_Node->next = cur->next;
+	cur->next = new_Node;
+}
+void Insertion(Node* &head, int pos, int data)
+{
+	if(pos == 1)
+	{
+		InsertAtHead(head,data);
+	}
+	else
+	{
+			Node* new_node = new Node(data);
+			Node* cur = head;
+			for(int i=1; i<pos-1;i++)
+			{
+				cur = cur->next;
+			}
+			new_node->next = cur->next;
+			cur->next = new_node;
+	}
+}
+
+void InsertMid(Node* &head, int data)
+{
+	Node* slow = head;
+	Node* fast = head;
+	Node* new_node = new Node(data);
+	while(fast->next->next!=head )
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+	new_node->next = slow->next;
+	slow->next = new_node;
+}
+int Deletion(Node* &head, int pos)
+{
+	Node* cur,*q;
+	int x;
+	if(pos == 1)
+	{
+		while(cur->next!=head)
+		{
+			cur = cur->next;
+		}
+		x = head->data;
+		if(head == cur)
+		{
+			delete head;
+			head = NULL;
+		}
+		else
+		{
+			cur->next = head->next;
+			delete (head);	
+			head = cur->next;		
+		}	
+	}
+	else
+	{
+		for(int i = 1; i<pos-1;i++)
+		{
+			cur = cur->next;	
+		}
+		q = cur->next;
+		cur->next = q->next;
+		x = q->data;
+		delete (q);	
+	}
+	return x;
+}
+
+void Display(Node* &head)
+{
+	Node* cur = head;
+	do
+	{
+		cout<<"  "<<cur->data<<" --> ";
+		cur = cur->next;
+	}while(cur!=head);
+	cout<<"NULL"<<endl;
+	
+}
+int main()
+{
+	Node* node = NULL;
+	Node* head = node;
+	Node* tail = node;
+	InsertAtHead(head,10);
+	Insertion(head,2,20);
+	Insertion(head,3,30);
+	Insertion(head,4,40);
+	InsertAtTail(head,50);
+	InsertAtTail(head,530);
+	InsertAtTail(head,25);
+	Display(head);
+	Deletion(head,4);
+	Display(head);
+	return 0;
+
+}
+
+
+*/ 		************  		**************		*****************  	/*
+
+
+
+
+
+************************ 	Question No 3:	  ****************************************
+
+	#include<iostream>
+using namespace std;
+class Node
+{
+		public:
+		int data;
+		Node* next;
+		Node* pre;
+		Node()
+		{
+			data = 0;
+			next = NULL;
+		}
+		Node(int data)
+		{
+			this->data = data;
+			this->pre = NULL;
+			this->next = NULL;
+		}
+		~Node()
+		{
+		}
+};
+class DC
+{
+	public:
+	Node* head;
+	Node* tail;
+	DC()
+	{
+		head = new Node;
+		tail = head;
+	}
+	DC(int data)
+	{
+		head = new Node(data);
+		tail = head;
+	}
+	void InsertAtTail(int data)
+	{
+	 	Node* new_Node = new Node(data);	
+		tail->next = new_Node;				// pointing the lastnext to newnode rather then head
+		new_Node->pre = tail;				// newNode pre pointing to last node;
+		new_Node->next = head;				// newNode next pointing to head node;
+		tail = new_Node;					// updating tail
+	}
+	void InsertAtHead(int data)
+	{
+		Node* new_Node = new Node(data);
+		tail->next = new_Node;				// pointing the lastnext to newnode rather then head
+		new_Node->pre = tail;				// newNode pre pointing to last node;
+		new_Node->next = head;				// newNode next pointing to head node;
+		head = new_Node;					// updating head
+	}
+	void Insertion(int pos, int data)
+	{
+		if(pos == 1)
+		{
+			InsertAtHead(data);
+		}
+		else
+		{
+			Node* new_node = new Node(data);
+			Node* cur = head;
+			for(int i=1; i<pos-1;i++)
+			{
+				cur = cur->next;
+			}
+			new_node->next = cur->next;
+			cur->next->pre = new_node;
+			new_node->pre = cur;
+			cur->next = new_node;
+		}
+	}
+	void Deletion(int pos)
+	{
+		Node* cur = head;
+		if(pos==1)
+		{
+			head = cur->next;
+			head->pre = NULL;
+			tail->next = head;
+			delete cur;
+		}	
+		else
+		{
+			for(int i=1;i<pos-1;i++)
+			{
+				cur = cur->next;
+			}
+			cout<<" "<<cur->data<<endl;
+			cur->next = cur->next->next;
+			cur->next->next->pre = cur;
+			delete (cur->next);
+		}
+	}
+
+	void Display()
+	{
+		Node* cur = head;
+		do
+		{
+			cout<<"  "<<cur->data<<" --> ";
+			cur = cur->next;
+		}while(cur!=head);
+		cout<<"NULL"<<endl;
+		
+	}
+};
+
+int main()
+{
+	DC* ob = new DC(10);
+	ob->InsertAtHead(20);
+	ob->InsertAtTail(60);
+	ob->InsertAtTail(70);
+	ob->Display();
+	ob->Deletion(2);
+	ob->Display();
+	
+	return 0;
+
+}
+
+
+*/ 		************  		**************		*****************  	/*
+
+
+
+
+************************ 	Question No 4:	  ****************************************
+
+
+#include<iostream>
+using namespace std;
+class Node
+{
+		public:
+		int data;
+		Node* next;
+		Node* pre;
+		Node()
+		{
+			data = 0;
+			next = NULL;
+		}
+		Node(int data)
+		{
+			this->data = data;
+			this->pre = NULL;
+			this->next = NULL;
+		}
+};
+		void InsertatStart(Node* &head, int data)
+		{
+			Node* new_Node = new Node(data);
+			new_Node->next = head;
+			head->pre = new_Node;
+			head = new_Node;
+		}
+		void InsertatEnd(Node* &head, int data)
+		{
+			Node* new_Node = new Node(data);
+			head->next = new_Node;
+			new_Node->pre = head;
+			head = new_Node;
+		}
+		void Insertion(Node* &head, int data,int pos)
+		{
+			Node* cur = head;
+			Node* new_Node = new Node(data);
+			if(pos == 1)
+			{
+			InsertatStart(head,data);
+			}
+			else
+			{
+			for(int i = 1; i<pos-1 ; i++ )
+			{
+			cur = cur->next;
+			}
+			new_Node->next = cur->next;
+			cur->next->pre = new_Node;
+			cur->next = new_Node;
+			new_Node->pre = cur;
+			}
+		}
+		void Deletion(Node* &head,int pos)
+		{
+			Node* cur = head;
+			if(pos==1)
+			{
+			head = cur->next;
+			head->pre = NULL;
+			delete cur;
+			}
+			else
+			{
+			for(int i = 1; i<pos; i++ )
+			{
+			cur = cur->next;
+			}
+			Node*  next_cur = cur->next;
+			Node* pre_cur = cur->pre;
+			next_cur->pre = pre_cur;
+			pre_cur->next = next_cur;
+			delete cur;
+			}
+		}
+		void Display(Node* &head)
+		{
+			Node* cur = head;
+			while(cur!=NULL)
+			{
+			cout<<"  "<<cur->data<<" --> ";
+			cur = cur->next;
+			}
+			cout<<"NULL"<<endl<<endl;
+		}
+		void Swap(Node* &f, Node* &l)
+		{
+			int x = f->data;
+			f->data = l->data;
+			l->data = x;
+		}
+		
+		// Insertion Sort using Doubly Lindlist
+		void InsertionSort(Node* &head)
+		{
+			Node* cur_node = head;			// cur pointer like 1
+			Node* pre_node = NULL;		
+			while(cur_node!=NULL)
+			{
+				pre_node = cur_node->next;	// next pointer like 2
+
+				// comparing nextpointers data and its previeus data
+				while(pre_node!=NULL && pre_node->pre!=NULL && pre_node->data < pre_node->pre->data)
+				{
+					//if true then swap
+					Swap(pre_node,pre_node->pre);
+
+					// then moveback the next pointer
+					pre_node = pre_node->pre;
+				}
+				cur_node = cur_node->next;
+			}
+		}
+		
+		Node* Concatinate(Node* &head1, Node* &head2)
+		{
+			Node* cur = head1;
+			while(cur->next!=NULL)
+			{
+				cur = cur->next;
+			}
+			cur->next = head2;
+			head2->pre = head1;
+			return (head1);
+		}
+		// Recursive Function for Concatinating
+		void Concatinate2(Node* &head1, Node* &head2)
+		{
+			if(head1->next==NULL)
+			{
+				head1->next = head2;
+				head2->pre = head1;
+			}
+			else
+			{
+				Concatinate2(head1->next,head2);
+			}
+		}
+int main()
+{
+	int n,x;
+	Node* node = new Node();			// initially it has zero store;
+	Node* node1 =  new Node();			// initially it has zero store;
+	
+	cout<<"ENTER THE SIZE OF THE LINKDLIST: ";
+	cin>>n;
+	cout<<"\n\n\nENTER 1ST NODES ELEMENTS:\n";
+	for(int i=1;i<=n;i++)
+	{
+		cin>>x;
+		Insertion(node,x,i);
+	}
+	cout<<"\n\n\nENTER 2ND NODES ELEMENTS:\n";
+	for(int i=1;i<=n;i++)
+	{
+		cin>>x;
+		Insertion(node1,x,i);
+	}
+	
+	cout<<"\n1ST NODES ELEMENTS: \n";
+	Display(node);
+	
+	cout<<"\n\n";
+	
+	cout<<"2ND NODES ELEMENTS: \n";
+	Display(node1);
+	
+	
+	cout<<"\n\nAFTER CONCATINATING TWO LINKDLIST : "<<endl;
+	Concatinate2(node,node1);
+	Display(node);
+	
+	
+	cout<<"\n\nSORTED CONCATINATED LINKDLIST: "<<endl;
+	InsertionSort(node); 
+	Display(node);
+
+
+}
+
+
+*/ 		************  		**************		*****************  	/*

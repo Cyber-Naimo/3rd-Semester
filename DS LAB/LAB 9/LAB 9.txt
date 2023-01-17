@@ -1,0 +1,155 @@
+//////////////////////////////////////////////////////////////////////////
+QUESTION NO 1:
+int solve(Node* &root,int min,int max)
+{
+	if(root==NULL)
+	{
+		return 10;
+	}
+	if(root->data<=max && root->data>=min)
+	{
+		int left = solve(root->left,min,root->data);
+		int right = solve(root->right,root->data,max);
+		return 10;
+	}
+	else
+	{
+		return 0;
+	}
+}
+int AutoGrader(Node* root)
+{
+	return solve(root,INT_MIN,INT_MAX);
+}
+***************************************************************************
+
+//////////////////////////////////////////////////////////////////////////
+QUESTION NO 2:
+	
+		/////  	********	PART A		**************   /////// 
+		Node* Insertion(Node* root,int data)
+		{
+			if(root == NULL)
+			{
+				root = new Node(data);
+				return root;
+			}
+			else if(data > root->data)
+			{
+				root->right = Insertion(root->right,data);
+			}
+			else 
+			{
+				root->left = Insertion(root->left,data);
+			}
+		}
+	void TakeInputs()
+		{
+			
+		/////  	********	PART B		**************   /////// 
+			int data[] = {15,10,20,8,12,16,25,-1};
+			int i=0;
+//			cout<<"ENTER DATA TO INSERT AT BST: "<<endl;
+//			cin>>data;
+			while(data[i]!=-1)
+			{
+				root = Insertion(root,data[i]);
+//				cin>>data;
+				i++;
+			}
+		}
+		
+		
+***************************************************************************
+
+
+
+//////////////////////////////////////////////////////////////////////////
+QUESTION NO 3:
+***************************************************************************
+		/////  	********	PART A		**************   /////// 
+
+void PreOrder(Node* &root)
+{
+	if(root == NULL)
+	{
+		return;
+	}
+	else
+	{
+		// 1)Node print kro , 2) left me jao,  3) right m jao
+	
+		PreOrder(root->left);
+		PreOrder(root->right);
+	}
+}
+
+void InOrder(Node* &root)
+		{
+			if(root == NULL)
+			{
+				return;
+			}
+			else
+			{
+				// 1)left me jao, 2) Node print kro,  3) right m jao
+				InOrder(root->left);
+				cout<<" "<<root->data;
+				InOrder(root->right);
+			}
+		}
+
+		/////  	********	PART B		**************   /////// 
+
+
+		void IterativePreOrder()
+		{
+			// temperaray nood
+			Node* temp = root;
+			stack <Node*> s;
+			s.push(root);
+			// it stop when stack is empty 
+			while(!s.empty() && temp!=NULL)
+			{
+//				take 1st element
+				temp =  s.top();
+				s.pop();
+				// print it
+				cout<<" "<<temp->data<<" ";
+				// if right!= NULL then again elements
+				if(temp->right!=NULL)
+				{
+					s.push(temp->right);
+				}
+				if(temp->left!=NULL)
+				{
+					s.push(temp->left);
+				}
+			}
+		}
+//////////////////////////////////////////////////////////////////////////
+QUESTION NO 4:
+
+	Node* DeletionTruncate(int low, int high)
+		{
+		    if (root == NULL)
+		    {
+		        return root;
+		    }
+		    root->left = DeletionTruncate(root->left, low, high);
+		    root->right = DeletionTruncate(root->right, low, high);
+		 
+		    Node* temp = root;
+		    if (root->data < low)
+		    {
+		        root = root->right;
+		        delete temp;
+		    }
+		    else if (root->data > high)
+		    {
+		        root = root->left;
+		        delete temp;
+		    }
+		    return root;
+		}
+***************************************************************************

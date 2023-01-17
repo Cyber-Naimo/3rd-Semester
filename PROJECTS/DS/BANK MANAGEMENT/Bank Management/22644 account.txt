@@ -1,0 +1,17 @@
+	Account Number: 22644
+	Account Type: C
+Name: moiz
+Cnic: 1
+Contact Number: 1
+Address: 1
+Balance: 9900
+Number of Transactions: 1
+Account Opening Date and Time: Tue Dec 06 23:07:40 2022
+
+
+History: 
+
+100 have been sent to Jazzcash on Tue Dec 06 23:09:05 2022
+
+10000 have been deposited in your account while opening on Tue Dec 06 23:07:40 2022
+

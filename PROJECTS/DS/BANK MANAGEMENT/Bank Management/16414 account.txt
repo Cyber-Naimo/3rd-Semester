@@ -1,0 +1,21 @@
+	Account Number: 16414
+	Account Type: C
+Name: nohail
+Cnic: 1
+Contact Number: 1
+Address: 1
+Balance: 3800
+Number of Transactions: 3
+Account Opening Date and Time: Fri Nov 18 10:28:36 2022
+
+
+History: 
+
+700 have been sent to Bank Account on Tue Dec 06 23:21:24 2022
+
+1000 have been withdrawed from your account on Fri Nov 18 10:30:02 2022
+
+500 have been deposited in your account on Fri Nov 18 10:29:07 2022
+
+5000 have been deposited in your account while opening on Fri Nov 18 10:28:36 2022
+

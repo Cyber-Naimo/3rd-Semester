@@ -1,0 +1,71 @@
+QUESTION NO 3:
+
+TITLE My First Program (Test.asm)
+INCLUDE Irvine32.inc
+.data
+var DWORD 8,5,1,2,6
+
+.code
+main PROC
+mov eax,[8+var]		;eax = 1
+xchg [0+var],eax	; simplying excahnging first index with 3rd  eax = 8
+mov [8+var],eax		;	in third index eax = 8
+
+mov eax,[12+var]	 ;eax = 2
+xchg [4+var],eax	 ; eax = 5
+mov[12+var],eax		; now eax in 4th index is 5
+
+mov eax,[8+var]		;eax = 8
+xchg[12+var],eax	; eax = 5
+mov[8+var],eax		; eax at index 5th with 8
+
+mov eax,[12+var]	;eax = 8
+xchg[16+var],eax	; eax = 6
+mov[12+var],eax		; eax at index 5th with 8
+
+call DumpRegs
+mov esi, offset var
+mov ebx, type var
+mov ecx, lengthof var
+call dumpmem
+exit
+main ENDP
+END main
+
+
+QUESTION NO 4:
+
+	TITLE My First Program (Test.asm)
+	INCLUDE Irvine32.inc
+	.data
+	varb BYTE 10,20,30
+	varw WORD 100,200,300
+	vard DWORD 1000,2000,3000
+	sum1 DWORD ?
+	sum2 DWORD ?
+	sum3 DWORD ?
+	
+	.code
+	main PROC
+	movzx eax, [varb]
+	movzx ebx,[varw]
+	add eax,ebx
+	add eax, [vard]
+	mov sum1,eax
+	call writeint
+	call crlf
+	movzx eax, [varb+1]
+	movzx ebx,[varw+2]
+	add eax,ebx
+	add eax, [vard+4]
+	mov sum2,eax
+	call writeint
+	call crlf
+	call DumpRegs
+
+	exit
+	main ENDP
+	END main
+
+
+QUESTION NO 5:

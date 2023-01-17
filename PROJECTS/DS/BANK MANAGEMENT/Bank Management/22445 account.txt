@@ -1,0 +1,15 @@
+	Account Number: 22445
+	Account Type: C
+Name: Hammad Anwar
+Cnic: 1234
+Contact Number: 1233
+Address: 1234
+Balance: 1000
+Number of Transactions: 0
+Account Opening Date and Time: Fri Nov 18 10:59:35 2022
+
+
+History: 
+
+1000 have been deposited in your account while opening on Fri Nov 18 10:59:35 2022
+

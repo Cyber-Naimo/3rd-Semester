@@ -1,0 +1,22 @@
+DRY RUN FOR THE QUESTION NO 4:
+
+
+1) fUN(95)  =  fun(fun(n+11))->  fun(106) then it will subtract 10 so fun return 96 to outer fun function.
+
+
+2) fUN(96)  =  fun(fun(n+11))->  fun(107) then it will subtract 10 so fun return 97 to outer fun function.
+
+
+3) fUN(97)  =  fun(fun(n+11))->  fun(108) then it will subtract 10 so fun return 98 to outer fun function.
+
+
+4) fUN(98)  =  fun(fun(n+11))->  fun(109) then it will subtract 10 so fun return 99 to outer fun function.
+
+
+5) fUN(99)  =  fun(fun(n+11))->  fun(110) then it will subtract 10 so fun return 100 to outer fun function.
+
+
+6) fUN(100)  =  fun(fun(n+11))->  fun(111) then it will subtract 10 so fun return 101 to outer fun function.
+
+
+7) fUN(101)  = 101 is >100  it will return 91 because all the cases are returned and the final output will be 91.

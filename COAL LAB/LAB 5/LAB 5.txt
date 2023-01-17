@@ -1,0 +1,73 @@
+QUESTION NO 1:
+
+`	COPYING ARRAY ELEMENTS:
+	TITLE My First Program (Test.asm)
+	INCLUDE Irvine32.inc
+	.data
+	source BYTE "THIS IS A STRING",0
+	target BYTE lengthof source DUP(?)
+	.code
+	main PROC
+	mov ecx, lengthof source
+	l1:
+	mov al,source[ecx-1]
+	mov target[ecx-1],al
+	loop l1
+	mov edx,offset target
+	call writestring 
+	call crlf
+	exit
+	main ENDP
+	END main
+
+QUESTION NO 2:
+
+	REVERSING AN ARRAY:
+		TITLE My First Program (Test.asm)
+		INCLUDE Irvine32.inc
+		.data
+		arr BYTE 10h,20h,30h,50h,70h
+		.code
+		main PROC
+		mov eax, 0
+		mov ebx, lengthof arr-1
+		mov ecx, lengthof arr/2
+		l1:
+		mov dh,arr[eax*TYPE arr]
+		xchg arr[ebx*TYPE arr],dh
+		mov arr[eax*TYPE arr],dh
+		inc eax
+		dec ebx
+		loop l1
+		mov esi, offset arr
+		mov ebx, TYPE arr
+		mov ecx, LENGTHOF arr
+		call dumpmem
+		exit
+		main ENDP
+		END main
+
+
+
+QUESTION NO 3:
+	FABONACCI SERIES
+
+		TITLE My First Program (Test.asm)
+		INCLUDE Irvine32.inc
+		.data
+		
+		.code
+		main PROC
+		mov eax,0
+		mov ebx,1
+		mov ecx,5
+		l1:
+		call writeint
+		mov edx,eax
+		add eax,ebx
+		mov ebx, edx
+		loop l1
+		exit
+		main ENDP
+		END main
+

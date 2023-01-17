@@ -1,0 +1,15 @@
+	Account Number: 25227
+	Account Type: C
+Name: SaudAhmed
+Cnic: 1
+Contact Number: 1
+Address: 1
+Balance: 11111
+Number of Transactions: 0
+Account Opening Date and Time: NFri Nov 18 11:13:53 2022
+
+
+History: 
+
+11111 have been deposited in your account while opening on Fri Nov 18 11:13:53 2022
+

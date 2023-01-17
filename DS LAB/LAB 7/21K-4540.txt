@@ -1,0 +1,96 @@
+*******************	QUUESTION NO 1: 	*******************
+
+	Flatten a Linkdlist:
+	
+    Node* Merge(Node* left , Node* right)
+    {
+        if(left == NULL)
+        {
+            return right;
+        }
+        else if(right == NULL)
+        {
+            return left;
+        }
+        else
+        {
+            Node* ans = new Node(-1);
+            Node* temp = ans;
+            while(left!=NULL && right!=NULL)
+            {
+                if(left->data < right->data)
+                {
+                    temp->bottom = left;
+                    temp = left;
+                    left = left->bottom;
+                }
+                else
+                {
+                    temp->bottom = right;
+                    temp = right;
+                    right = right->bottom;
+                }
+            }
+            
+            while(left!=NULL)
+            {
+                    temp->bottom = left;
+                    temp = left;
+                    left = left->bottom;
+            }
+            while(right!=NULL)
+            {
+                  temp->bottom = right;
+                    temp = right;
+                    right = right->bottom;
+            }
+            ans = ans->bottom;
+            return ans;
+        }
+    }
+
+  Node* flatten(Node* head) 
+  {
+        if(head == NULL || head->next==NULL)
+        {
+            return head;
+        }
+        else
+        {
+            Node* down = head;
+            Node* right = head->next;
+            down->next = NULL;
+            right = flatten(right);
+            
+            Node* ans = Merge(down,right);
+            return ans;              
+        }
+        
+    }
+
+******************************************************************************************************************************************
+
+
+*******************			QUUESTION NO 3: 	********************************************************************
+
+		Removing Duplicates from Linkdlist:
+ Node* Duplicate(Node* &head)
+ {
+	Node* cur = head;
+	while(cur!=NULL)
+	{
+		if( (cur->next!=NULL) && cur->data==cur->next->data)
+		{
+		
+			Node* next_next = cur->next->next;
+			Node* to_delete = cur->next;
+			delete(to_delete);
+			cur->next=next_next;
+		}
+		else
+		{
+			cur = cur->next;	
+		}
+	}
+	return head;
+  }

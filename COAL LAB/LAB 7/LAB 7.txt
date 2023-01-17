@@ -1,0 +1,176 @@
+
+	greatest in 3 No:
+
+Include Irvine32.inc
+.data
+var1 DWORD 30
+var2 DWORD 125
+var3 DWORD 30
+msg BYTE " LARGEST NO IS: ",0
+larger DWORD ?
+.code
+main proc
+mov eax, var1					; eax holds 30
+cmp eax, var2					; now compare 30 with 125 if its greater then jump to L1
+jae L1
+mov eax, var2					; if it is not greater then mov var2 in eax
+L1:
+cmp eax,var3					; here if var1 is > var2 then also compare with var3
+jae L2
+mov eax ,var3					; if var2 is less then var3 then var3 is greater then simply move var3 in eax
+L2:
+mov edx,offset msg
+call writestring
+call writeDec
+call DumpRegs
+exit
+main ENDP 
+END main
+
+
+
+Q1
+Include Irvine32.inc
+.data
+var1 DWORD 5	; var
+var2 DWORD 4	; ecx
+var3 DWORD 6	; edx
+x DWORD 1
+.code
+main proc
+mov eax,var1
+mov ecx,var2
+mov edx,var3
+cmp eax,ecx
+jb tru
+cmp ecx,edx
+jae tru
+jmp fal
+tru:
+mov x,0
+mov eax,x
+call writeDec 
+call crlf
+fal:
+mov eax,x
+call writeDec 
+call crlf
+exit
+main ENDP 
+END main
+
+
+Q2
+
+Include Irvine32.inc
+.data
+arr SWORD 0, 9, 0, 0, 1, 20, 35, -12, 66, 4, 0
+msg1 byte " Non zero element found: ",0
+msg2 byte " Non zero element not found: ",0
+req SWORD 0
+.code
+main proc
+mov eax,0
+mov esi,offset arr
+mov ecx,lengthof arr
+
+Traverse:
+
+mov ax,[esi]
+cmp ax,req
+jnz	found			; jump if not zero elemnet found
+add esi, Type arr
+loop Traverse
+
+jmp notfound
+
+found:
+mov edx,offset msg1
+call writestring
+mov ax,[esi]
+call writeDec
+exit
+
+notfound:
+mov edx,offset msg2
+call writestring
+main ENDP 
+END main
+
+	
+Q4 LINEAR SEARCHING
+
+Include Irvine32.inc
+.data
+arr WORD 10, 4, 7, 14, 299, 156, 3, 19, 29, 300, 20
+msg1 BYTE " Enter No to Search: ",0
+msg2 byte "  element found: ",0
+msg3 byte " element not found: ",0
+val word ?
+.code
+main proc
+mov edx, offset msg1
+call writestring
+call readint
+mov val,ax				; val = 10
+mov eax,0
+mov esi,offset arr
+mov ecx,lengthof arr
+traverse:
+mov ax,[esi]
+cmp ax,val
+je found
+add esi, type arr
+loop traverse
+jmp notfound
+found:
+mov edx,offset msg2
+call writestring
+mov ax,[esi]
+call writeint
+exit
+notfound:
+mov edx,offset msg3
+call writestring
+exit
+main ENDP 
+END main
+
+	
+Q5
+
+Include Irvine32.inc
+.data
+arr WORD 10, 9,8,7,6,1,2,7
+msg1 BYTE " SWAP COUNT: ",0
+swap word 0
+var1 word ?
+var2 word ?
+
+.code
+main proc
+mov eax,0
+mov esi,offset arr
+mov ecx, lengthof arr
+traverse:
+mov ax,[esi]
+mov var1,ax
+add esi,Type arr
+mov ax,[esi]
+mov var2,ax
+cmp ax,var1
+jb found
+found:
+ inc swap
+add esi, type arr
+loop traverse
+mov ax,swap
+call writeint
+call crlf
+exit
+main ENDP 
+END main
+
+	
+
+	

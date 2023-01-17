@@ -1,0 +1,15 @@
+	Account Number: 25600
+	Account Type: C
+Name: SadAhme
+Cnic: 1
+Contact Number: 1
+Address: 1
+Balance: 5000
+Number of Transactions: 0
+Account Opening Date and Time: Fri Nov 18 11:15:36 2022
+
+
+History: 
+
+5000 have been deposited in your account while opening on Fri Nov 18 11:15:36 2022
+

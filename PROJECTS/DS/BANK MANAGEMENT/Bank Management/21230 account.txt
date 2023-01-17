@@ -1,0 +1,15 @@
+	Account Number: 21230
+	Account Type: S
+Name: Shan Masood
+Cnic: 56
+Contact Number: 123
+Address: 23
+Balance: 5000
+Number of Transactions: 0
+Account Opening Date and Time: Fri Nov 18 10:53:34 2022
+
+
+History: 
+
+5000 have been deposited in your account while opening on Fri Nov 18 10:53:34 2022
+
